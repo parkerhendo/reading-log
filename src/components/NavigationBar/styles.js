@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  margin: 0 auto;
+  grid-area: 'menu';
   width: 80%;
   height: 48px;
   background: #fff;
@@ -32,4 +34,8 @@ export const FlexContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+`;
+
+export const CTAButton = styled.button`
+  
 `;

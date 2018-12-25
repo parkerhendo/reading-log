@@ -4,7 +4,10 @@ export const App = styled.div`
   height: 100vh;
   width: 100vw;
   background: #f4f4f4;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-rows: 56px 56px repeat(auto-fill, 1fr);
+  grid-template-areas: '
+    "menu menu menu"
+    "filter filter filter"
+    "book book book"
 `;
