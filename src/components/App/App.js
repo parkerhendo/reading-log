@@ -10,23 +10,25 @@ class App extends Component {
     super(props);
     this.state = {
       formInput: '',
-      books: ["Hello World"]
+      readingCount: 0,
+      reading: false,
+      books: [],
     };
   }
 
   onChange = (e) => {
     this.setState({ formInput: e.target.value });
-  }
+  };
 
   onSubmit = () => {
     const { books, formInput } = this.state;
-    const newList = [formInput, ...books];
-    this.setState({ 
+    const newList = [{ title: formInput, reading: false }, ...books];
+    this.setState({
       formInput: '',
-      books: newList
+      books: newList,
     });
     console.log(newList);
-  }
+  };
 
   onKeyDown = (e) => {
     if (e.key === 'Enter') {
@@ -34,15 +36,38 @@ class App extends Component {
       e.stopPropagation();
       this.onSubmit();
     }
-  }
+  };
+
+  onCheckboxChange = (e) => {
+    if (e.target.checked === true) {
+      this.setState({ reading: true, readingCount: this.state.readingCount + 1});
+    }
+    if (e.target.checked === false) {
+      this.setState({ reading: false, readingCount: this.state.readingCount - 1}); 
+    }
+  };
 
   render() {
-    const { onChange, onSubmit, onKeyDown } = this;
+    const { onChange, onSubmit, onKeyDown, onCheckboxChange } = this;
+    const {readingCount} = this.state;
     return (
       <S.App>
-        <NavigationBar value={this.state.formInput} onChange={onChange} onSubmit={onSubmit} onKeyDown={onKeyDown}/>
+        <NavigationBar
+          value={this.state.formInput}
+          onChange={onChange}
+          onSubmit={onSubmit}
+          onKeyDown={onKeyDown}
+          readingCount={readingCount}
+        />
         <BookGrid>
-          {this.state.books.map(titles => <Book title={titles} />)}
+          {this.state.books.map((book) => (
+            <Book
+              key={Math.random()}
+              title={book.title}
+              onChange={onCheckboxChange}
+              checkboxValue={book.reading}
+            />
+          ))}
         </BookGrid>
       </S.App>
     );

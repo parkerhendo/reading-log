@@ -12,6 +12,21 @@ export const BookCell = styled.div`
   &::last-of-type {
     margin-bottom: 0;
   }
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+`;
+
+export const Title = styled.h3`
+  font-weight: bold;
+`;
+
+export const FlexContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const ReadingToggle = styled.input`
+  margin-left: 8px;
 `;
