@@ -7,8 +7,6 @@ export default class Filter extends React.Component {
     this.state = { filter: 'all' };
   }
   render() {
-    const { filter } = this.state;
-    const { Buttons } = this;
     return (
       <S.FilterContainer>
         <S.ActiveButton>Read</S.ActiveButton>

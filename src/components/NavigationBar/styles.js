@@ -36,6 +36,33 @@ export const FlexContainer = styled.div`
   align-items: center;
 `;
 
-export const CTAButton = styled.button`
-  
+export const Input = styled.input`
+  max-width: 500px;
+  min-width: 300px;
+  min-height: 32px;
+  padding: 2px 16px;
+  background: #f4f4f4;
+  margin-right: 32px;
+  text-align: center;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    font-weight: 600;
+    color: #c0c0c0;
+  }
+`;
+
+export const AddButton = styled.button`
+  outline: none;
+  border: none;
+  min-width: 64px;
+  min-height: 36px;
+  border-radius: 6px;
+  padding: 8px 16px;
+  color: #fff;
+  background: #000;
 `;
