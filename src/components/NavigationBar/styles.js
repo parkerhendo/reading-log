@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  position: sticky;
+  top: 32px;
   margin: 0 auto;
   grid-area: menu;
   width: 80%;
   height: 48px;
   background: #fff;
   border-radius: 8px;
-  margin-top: 32px;
   padding: 4px 32px;
   box-shadow: 0 25px 35px -20px rgba(25, 25, 25, 0.07);
   display: flex;
